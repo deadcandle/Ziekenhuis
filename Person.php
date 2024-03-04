@@ -16,7 +16,6 @@ abstract class Person {
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
     }
     public function getRole()
     {
@@ -25,7 +24,6 @@ abstract class Person {
     public function setRole($role)
     {
         $this->role = $role;
-        return $this;
     }
 }
 ?>
