@@ -2,6 +2,6 @@
 abstract class Staff extends Person {
     private float $salary;
 
-    abstract public function setSalery();
+    abstract public function setSalary($amount);
 }
 ?>
