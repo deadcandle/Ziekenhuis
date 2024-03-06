@@ -9,20 +9,16 @@ abstract class Person {
     }
 
     # Getters and setters
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
     }
-    public function getRole()
-    {
+    public function getRole() {
         return $this->role;
     }
-    public function setRole($role)
-    {
+    public function setRole($role) {
         $this->role = $role;
     }
 }

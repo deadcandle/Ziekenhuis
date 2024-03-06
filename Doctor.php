@@ -1,9 +1,7 @@
 <?php
 class Doctor extends Staff {
     public function __construct($name, $role, $payment) {
-        $this->name = $name;
-        $this->role = $role;
-        $this->payment = $payment;
+        parent::__construct($name, $role);
     }
     
     # Getters and setters

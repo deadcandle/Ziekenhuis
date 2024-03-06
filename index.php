@@ -27,7 +27,23 @@ $bloedarmoede = new Appointment(
     "2012-12-12 09:00:00",
     "2012-12-12 10:00:00"
 );
-
-print_r($bloedarmoede->getAppointments());
+$depressie = new Appointment(
+    $tobi,
+    $alexandra,
+    array($jasmine),
+    "2013-12-12 09:00:00",
+    "2013-12-12 10:00:00"
+);
 
 ?>
+
+<h1>Welkom</h1>
+<p>Er zijn <?php echo sizeof($bloedarmoede->getAppointments()); ?> afspraken gepland.
+<hr>
+<?php foreach ($bloedarmoede->getAppointments() as $appointment) : ?>
+    <b>Patient:</b> <?php echo $appointment->getPatient()->getName(); ?><br>
+    <b>Arts:</b> <?php echo $appointment->getDoctor()->getName(); ?><br>
+    <b>Verpleegsters:</b>
+
+    <hr>
+<?php endforeach ?>
