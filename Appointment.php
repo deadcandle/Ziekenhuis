@@ -2,7 +2,7 @@
 class Appointment {
     private Patient $patient;
     private Doctor $doctor;
-    private array $nurses = array();
+    private array $nurses = [];
     private string $beginTime; //TODO DateTime
     private string $endTime; //TODO DateTime
     public static string $count;
@@ -11,7 +11,9 @@ class Appointment {
     public function __construct($patient, $doctor, $nurses, $beginTime, $endTime) {
         $this->patient = $patient;
         $this->doctor = $doctor;
-        array_push($this->nurses, $nurses);
+        foreach ($nurses as $nurse) {
+            array_push($this->nurses, $nurse);
+        }
         $this->beginTime = $beginTime;
         $this->endTime = $endTime;
         // array_push(Appointment::$appointments, $this);
@@ -27,12 +29,12 @@ class Appointment {
         array_push($this->nurses, $nurse);
     }
 
-    function getTimeDifferences() : float {
-        return 0;
+    public function getTimeDifferences() : float {
+        return strtotime($this->beginTime);
     }
 
-    function getCosts() : float {
-        
+    public function getCosts() : float {
+        return $this->getTimeDifferences();
     }
 
     # Getters and setters

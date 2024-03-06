@@ -14,6 +14,7 @@ $misha = new Patient("Misha", "Patient", 80);
 # Create nurses
 $jasmine = new Nurse("Jasmine", "Nurse", 200);
 $chloe = new Nurse("Chloe", "Nurse", 200);
+$sophie = new Nurse("Sophie", "Nurse", 4000);
 
 # Create doctors
 $alexandra = new Doctor("Dr. Alexandra", "Doctor", 500);
@@ -37,6 +38,13 @@ $depressie = new Appointment(
 
 ?>
 
+<style>
+    html {
+        filter: invert();
+        font-family: Arial;
+    }
+</style>
+
 <h1>Welkom</h1>
 <p>Er zijn <?php echo sizeof($bloedarmoede->getAppointments()); ?> afspraken gepland.
 <hr>
@@ -44,6 +52,11 @@ $depressie = new Appointment(
     <b>Patient:</b> <?php echo $appointment->getPatient()->getName(); ?><br>
     <b>Arts:</b> <?php echo $appointment->getDoctor()->getName(); ?><br>
     <b>Verpleegsters:</b>
-
+    <ul>
+    <?php foreach ($appointment->getNurses() as $nurse) : ?>
+        <li>Verpleegster <?php echo $nurse->getName(); ?></li>
+    <?php endforeach ?>
+    </ul>
+    
     <hr>
 <?php endforeach ?>
