@@ -7,5 +7,6 @@ abstract class Staff extends Person {
     }
 
     abstract public function setSalary($amount);
+    abstract public function getSalary();
 }
 ?>

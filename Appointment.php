@@ -16,7 +16,6 @@ class Appointment {
         }
         $this->beginTime = $beginTime;
         $this->endTime = $endTime;
-        // array_push(Appointment::$appointments, $this);
         self::$appointments[] = $this;
     }
 
@@ -30,11 +29,16 @@ class Appointment {
     }
 
     public function getTimeDifferences() : float {
-        return strtotime($this->beginTime);
+        return strtotime($this->endTime) - strtotime($this->beginTime);
     }
 
     public function getCosts() : float {
-        return $this->getTimeDifferences();
+        $seconds = $this->getTimeDifferences();
+        $costs = $this->getDoctor()->getSalary();
+        foreach ($this->getNurses() as $nurse) {
+            $costs += $nurse->getSalary();
+        }
+        return $costs;
     }
 
     # Getters and setters
