@@ -42,6 +42,12 @@ $depressie = new Appointment(
     html {
         filter: invert();
         font-family: Arial;
+        max-width: 512px;
+        margin: auto;
+    }
+    hr {
+        border: none;
+        border-bottom: 5px solid black;
     }
 </style>
 
